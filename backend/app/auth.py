@@ -1,15 +1,22 @@
 import os
+import sys
 from datetime import datetime, timedelta, timezone
 from typing import Optional
 
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 
-# Load the secret key from the environment; fall back to a default only for local dev.
+# Load the secret key from the environment.
 # In production, always set the SECRET_KEY environment variable to a strong random value.
-SECRET_KEY: str = os.environ.get(
-    "SECRET_KEY", "change-me-in-production-use-a-long-random-secret"
-)
+_DEFAULT_SECRET_KEY = "change-me-in-production-use-a-long-random-secret"
+SECRET_KEY: str = os.environ.get("SECRET_KEY", _DEFAULT_SECRET_KEY)
+
+if SECRET_KEY == _DEFAULT_SECRET_KEY:
+    print(
+        "WARNING: SECRET_KEY is using the insecure default value. "
+        "Set the SECRET_KEY environment variable to a strong random secret before deploying to production.",
+        file=sys.stderr,
+    )
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_SECONDS = 300
 REFRESH_TOKEN_EXPIRE_SECONDS = 7 * 24 * 3600  # 7 days

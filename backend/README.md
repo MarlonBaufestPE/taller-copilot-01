@@ -4,6 +4,16 @@ FastAPI-based Web API that implements JWT (JSON Web Token) authentication. Provi
 
 ---
 
+## ⚠️ Security Notice (Production Use)
+
+This service is a **demonstration** project. Before deploying to production:
+
+1. **Set a strong `SECRET_KEY`**: Generate one with `openssl rand -hex 32` and pass it as the `SECRET_KEY` environment variable. The application prints a warning to stderr if the default key is used.
+2. **Replace the hardcoded credentials**: The `admin` / `admin123` account exists only for demo purposes. Replace it with a real user store (database, LDAP, etc.).
+3. **Use HTTPS**: Always serve the API behind TLS in production.
+
+---
+
 ## Table of Contents
 
 - [Features](#features)
