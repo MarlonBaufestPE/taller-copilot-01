@@ -197,6 +197,134 @@ export default function WelcomePage() {
           ))}
         </div>
 
+        {/* Microsoft Certifications 2026 */}
+        <div className="w-full max-w-5xl mt-16">
+          <div className="text-center mb-8">
+            <p
+              className="text-sm font-medium mb-2 tracking-widest uppercase"
+              style={{ color: '#6B7280', letterSpacing: '0.35px' }}
+            >
+              Microsoft Learn
+            </p>
+            <h2
+              className="font-medium"
+              style={{
+                color: '#111827',
+                fontFamily: 'Inter, sans-serif',
+                fontSize: 'clamp(22px, 3vw, 32px)',
+                lineHeight: '1.2',
+                letterSpacing: '-0.015em',
+              }}
+            >
+              Nuevas Certificaciones Microsoft 2026
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              {
+                code: 'SC-500',
+                title: 'Cloud and AI Security Engineer Associate',
+                description:
+                  'Nueva certificación que reemplaza AZ-500. Cubre seguridad de entornos cloud e IA, identidad, redes, cómputo y postura de seguridad.',
+                badge: 'Nuevo · Jul 2026',
+                accent: '#E0E7FF',
+                accentText: '#4338CA',
+                url: 'https://learn.microsoft.com/credentials/certifications/resources/study-guides/sc-500',
+              },
+              {
+                code: 'MS-721',
+                title: 'Collaboration Communications Systems Engineer Associate',
+                description:
+                  'Certificación Microsoft 365 para ingenieros de sistemas de comunicación y colaboración empresarial con Microsoft Teams.',
+                badge: 'Actualizado · 2026',
+                accent: '#DCFCE7',
+                accentText: '#15803D',
+                url: 'https://learn.microsoft.com/credentials/certifications/m365-collaboration-communications-systems-engineer/',
+              },
+              {
+                code: 'AI-102',
+                title: 'Azure AI Engineer Associate',
+                description:
+                  'Diseño e implementación de soluciones de IA en Azure usando Azure AI Services, Azure OpenAI y habilidades de IA generativa.',
+                badge: 'Actualizado · 2026',
+                accent: '#FEF3C7',
+                accentText: '#92400E',
+                url: 'https://learn.microsoft.com/credentials/certifications/azure-ai-engineer/',
+              },
+              {
+                code: 'DP-600',
+                title: 'Fabric Analytics Engineer Associate',
+                description:
+                  'Implementación y administración de soluciones analíticas de datos con Microsoft Fabric, incluyendo lakehouses y pipelines.',
+                badge: 'Microsoft Fabric · 2026',
+                accent: '#FCE7F3',
+                accentText: '#9D174D',
+                url: 'https://learn.microsoft.com/credentials/certifications/fabric-analytics-engineer-associate/',
+              },
+            ].map(({ code, title, description, badge, accent, accentText, url }) => (
+              <a
+                key={code}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col gap-3 transition-all duration-300 no-underline"
+                style={{
+                  background: 'rgba(255,255,255,0.9)',
+                  border: '0.8px solid #E5E7EB',
+                  borderRadius: '20px',
+                  padding: '24px',
+                  backdropFilter: 'blur(4px)',
+                  boxShadow:
+                    'rgba(0,0,0,0) 0px 0px 0px 0px, rgba(0,0,0,0) 0px 0px 0px 0px, rgba(0,0,0,0.04) 0px 8px 30px 0px',
+                  textDecoration: 'none',
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-2px)')}
+                onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
+              >
+                <div className="flex items-center justify-between">
+                  <span
+                    className="text-xs font-semibold px-2 py-1"
+                    style={{
+                      background: accent,
+                      color: accentText,
+                      borderRadius: '8px',
+                      letterSpacing: '0.3px',
+                    }}
+                  >
+                    {code}
+                  </span>
+                  <span
+                    className="text-xs font-light"
+                    style={{ color: '#9CA3AF', letterSpacing: '0.3px' }}
+                  >
+                    {badge}
+                  </span>
+                </div>
+                <div>
+                  <p
+                    className="text-sm font-medium mb-2"
+                    style={{ color: '#111827', fontFamily: 'Inter, sans-serif', lineHeight: '1.4' }}
+                  >
+                    {title}
+                  </p>
+                  <p
+                    className="text-xs font-light"
+                    style={{ color: '#6B7280', fontFamily: 'Inter, sans-serif', lineHeight: '1.6' }}
+                  >
+                    {description}
+                  </p>
+                </div>
+                <p
+                  className="text-xs font-medium mt-auto"
+                  style={{ color: accentText, letterSpacing: '0.3px' }}
+                >
+                  Ver certificación →
+                </p>
+              </a>
+            ))}
+          </div>
+        </div>
+
         {/* CTA / logout */}
         <div className="mt-12">
           <button
